@@ -23,7 +23,7 @@
         for (const key in ASSETS) {
             const { selector, url } = ASSETS[key];
             const el = document.querySelector(selector);
-            if (el && !el.src.includes(url)) {
+            if (el && el.getAttribute('src') !== url) {
                 el.src = url;
             }
         }
@@ -34,26 +34,6 @@
     const observer = new MutationObserver(() => reemplazarTodo());
     observer.observe(document.documentElement, {
         childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['src']
-    });
-
-    setInterval(reemplazarTodo, 200);
-
-    const originalDescriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
-    Object.defineProperty(HTMLImageElement.prototype, 'src', {
-        set: function(value) {
-            for (const key in ASSETS) {
-                const { selector, url } = ASSETS[key];
-                if (this.matches && this.matches(selector) && !value.includes(url)) {
-                    originalDescriptor.set.call(this, url);
-                    return;
-                }
-            }
-            originalDescriptor.set.call(this, value);
-        },
-        get: originalDescriptor.get,
-        configurable: true
+        subtree: true
     });
 })();

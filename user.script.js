@@ -2,6 +2,7 @@
 // @name         RepulsBG
 // @namespace    http://tampermonkey.net/
 // @version      1.0
+// @description  Custom logo + loading screen for repuls.io
 // @match        *://repuls.io/*
 // @run-at       document-start
 // @grant        none
@@ -15,9 +16,10 @@
     const BASE = 'https://raw.githubusercontent.com/nyzonix/RepulsBG/main/images';
 
     const ASSETS = {
-        loader: { selector: '#loader_img',     url: BASE + 'loader.png' },
+        loader: { selector: '#loader_img', url: BASE + 'loader.png' },
         logo:   { selector: '#repuls_logo img', url: BASE + 'logo.png' }
     };
+
 
     function reemplazarTodo() {
         for (const key in ASSETS) {

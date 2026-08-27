@@ -13,7 +13,7 @@
 (function() {
     'use strict';
 
-    const BASE = 'https://raw.githubusercontent.com/nyzonix/RepulsBG/main/images';
+    const BASE = 'https://raw.githubusercontent.com/nyzonix/RepulsBG/main/images/';
 
     const ASSETS = {
         loader: { selector: '#loader_img', url: BASE + 'loader.png' },

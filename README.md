@@ -2,6 +2,13 @@
 
 Customize your Repuls logo + Loading screen + progress bar colors via JS code injection.
 
+# Features
+
+- 🖼️ Replace the loading screen background image
+- 🎮 Replace the main menu logo
+- 🎨 Customize the progress bar colors (track and fill gradient)
+- 🔄 Auto-updates via Tampermonkey when this repo is updated
+
 # How to apply a theme
 
 1. Install the browser extension "Tampermonkey"
@@ -27,4 +34,74 @@ Customize your Repuls logo + Loading screen + progress bar colors via JS code in
 
 6. Press Crtl + S to save and open [Repuls.io](https://repuls.io) to test it!
 
+# How create a theme
 
+## Default Assets
+
+By default, the script loads its assets from the `images/` folder in this repository:
+
+| Element         | File               | Recommended size / aspect ratio |
+|-----------------|--------------------|----------------------------------|
+| Loading screen  | `images/loader.png`| ~683:869 (portrait)              |
+| Logo            | `images/logo.png`  | Any (scales to container width)  |
+
+
+### 1. Fork this repository
+### 2. Clone your fork
+
+```bash
+git clone https://github.com/YOUR_USERNAME/RepulsBG.git
+cd RepulsBG
+```
+
+
+### 3. Replace the images
+Drop your own images into the `images/` folder, using the **same filenames** as the originals so the script picks them up automatically:
+
+```
+images/
+├── loader.png   # replaces the loading screen background
+└── logo.png     # replaces the main menu logo
+```
+
+> **Tip:** for best results, keep `loader.png` close to a **683:869** aspect ratio (portrait) to avoid letterboxing or cropping when it's displayed in-game.
+
+### 4. (Optional) Customize the progress bar colors
+
+Open `user.script.js` and edit the `PROGRESS_BAR` object:
+
+```javascript
+const PROGRESS_BAR = {
+    backgroundColor: '#00eaff80',      // track (empty bar) color
+    blueSpanBackgroundColor: '#ff00e7', // fill base color
+    blueSpanGradientStart: '#387eff',   // fill gradient start
+    blueSpanGradientEnd: '#5d63ab'      // fill gradient end
+};
+```
+
+Any valid CSS color (hex, `rgb()`, `rgba()`) works here.
+
+### 5. Point the script to your own fork
+
+In the same `user.script.js`, update the `BASE` constant and the `@updateURL` / `@downloadURL` headers to point to **your** repository instead of the original:
+
+```javascript
+// ==UserScript==
+// @updateURL    https://raw.githubusercontent.com/YOUR_USERNAME/RepulsBG/main/user.script.js
+// @downloadURL  https://raw.githubusercontent.com/YOUR_USERNAME/RepulsBG/main/user.script.js
+// ==/UserScript==
+
+const BASE = 'https://raw.githubusercontent.com/YOUR_USERNAME/RepulsBG/main/images/';
+```
+
+This ensures the script loads your images from your fork, and that Tampermonkey checks *your* repo for future updates — not the original one.
+
+### 6. Commit and push
+
+
+### 7. Install your version
+Go up and read the section called "How to apply a theme", instead of copying my code into Tampermonkey copy yours. 
+
+## License
+
+MIT — feel free to fork, modify, and share your own themes.

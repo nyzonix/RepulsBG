@@ -19,7 +19,7 @@ Customize your Repuls logo + Loading screen + progress bar colors via JS code in
    [Tampermonkey's FAQ](https://www.tampermonkey.net/faq.php?q=Q209#Q209)
 
 3. Open the Tampermonkey extension, click on "Create a new script"
-   <img width="480" height="512" alt="image" src="https://github.com/user-attachments/assets/6aeafee2-eb6a-4b89-8792-1e0f9852de7f" />
+<img width="240" alt="Screenshot 2025-04-18 at 3 27 28 PM" src="https://github.com/user-attachments/assets/5c514b8b-8551-410b-b35f-d500963166d7" />
 
 4. Delete all the deffault code
 5. Paste your theme's JS code, in case you don't know how to code a theme or you don't have acces to any theme's code try [This one](https://raw.githubusercontent.com/nyzonix/RepulsBG/main/user.script.js)

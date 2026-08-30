@@ -17,7 +17,8 @@ Customize your Repuls logo + Loading screen + progress bar colors via JS code in
 
 ### 2.  Extra steps only for Chromium based browsers
    - 2.1 Enable developer mode:
-   <img width="2860" height="678" alt="image" src="https://github.com/user-attachments/assets/b9229265-a094-41e5-9b7f-94d9a31e77cc" />
+  <img width="2936" height="1498" alt="image" src="https://github.com/user-attachments/assets/409f7caa-dcfa-4da2-922f-af34e54f200b" />
+
 
    Chrome versions 138+ also require you to allow user scripts
    - 2.2  Then go right-click the Tampermonkey icon from the extensions toolbar (the puzzle icon)
